@@ -1,13 +1,21 @@
-let productos1 = {
-    nombre : 'coc'
+let producto1 = {
+    nombre : 'coc',
     precio : 'free'
   }
   let producto2 = {
-    nombre: 'cr'
+    nombre: 'cr',
     precio: 'free'
   }
   
-  let objetos = [producto1,productos2]
+  let objetos = [producto1,producto2]
   
   objetos
+  
+
+  
+  let objetos2 = []
+  
+  objetos2.push(producto1,producto2);
+  
+  objetos2
   
