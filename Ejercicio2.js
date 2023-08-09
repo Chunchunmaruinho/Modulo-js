@@ -21,18 +21,30 @@ const cartelLogin = {
 };
 
 
-function login(){
-  const user = prompt('INGRESAR USUARIO');
-  const password = prompt('INGRESAR CONTRASE;A');
-  if (user == cartelLogin.user1 && password == cartelLogin.password1) {
-    console.log("Ingresando");
-    subirProductos(crearProducto('hola','chau',111,'img'),productos);
-    return true
-    
-  }  else {
-    console.log("Denegado");
-    return false;
-  }
+function login(){  
+    const user = prompt('INGRESAR USUARIO');
+    const password = prompt('INGRESAR CONTRASE;A');
+           if (user == cartelLogin.user1 && password == cartelLogin.password1) {
+            console.log("Ingresando");
+            subirProductos(crearProducto('hola','chau',111,'img'),productos);
+            return true;
+            }   else {
+                console.log("Denegado");
+                return false;
+                }
+    }
 
+
+
+function loop(){
+    for (let i = 0; i<3; i++) {
+        login();
+        if (login() = true) {
+            break;}
+        
+        
+    
+    }
 }
-login()
+
+loop();
