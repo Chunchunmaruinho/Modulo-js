@@ -10,7 +10,12 @@ do {
     if (numeroUsuario === numeroSecreto) {
         console.log('ya ta bien');
     }
+    if (intentos == 1) {
+        alert("muchos intentos ya fue");
+        break;
+    }
   }
 
   intentos++;
+  
 } while (numeroUsuario !== numeroSecreto);
