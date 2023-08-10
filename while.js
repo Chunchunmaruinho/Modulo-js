@@ -7,15 +7,13 @@ do {
     console.log(`Epa!, le pegaste pa`);
   } else {
     numeroUsuario = Number(prompt('Ingresá otro numero'));
+    intentos ++;
     if (numeroUsuario === numeroSecreto) {
         console.log('ya ta bien');
     }
-    if (intentos == 1) {
+    if (intentos == 2) {
         alert("muchos intentos ya fue");
         break;
     }
   }
-
-  intentos++;
-  
 } while (numeroUsuario !== numeroSecreto);
