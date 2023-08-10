@@ -38,12 +38,9 @@ function login(){
 
 function loop(){
     for (let i = 0; i<3; i++) {
-        login();
-        if (login() = true) {
-            break;}
-        
-        
-    
+        if (login() == true) {
+            break;
+        } 
     }
 }
 
