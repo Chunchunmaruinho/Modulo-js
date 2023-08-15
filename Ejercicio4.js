@@ -1,3 +1,5 @@
+let productos = [];
+
 const cartelLogin = {
     user1: 'admin',
     password1: '1234'
@@ -22,17 +24,16 @@ function loginWithRetry(){
     for (let i = 0; i<3; i++) {
         if (login() == true) {
             return true;
-        }   
-            
+        }          
     }
 }
 
 function mainMenu() {
     let menu = prompt(`
-    0 - Cargar producto
+    0 - Subir producto
     1 - Mostrar productos
-    2 - Salir`);
-    /*
+    2 - Borrar producto
+    3 - Salir`);
     switch (menu) {
         case "0":
             cargarProductoF();
@@ -41,11 +42,15 @@ function mainMenu() {
             mostrarProductoF();
             break;
         case "2":
-            salirF();
+            borrarProductoF();
             break;
+        case "3":
+            salirF();
+        default:
+            mainMenu();
     }
-    */
-    if (menu == '0'){
+    
+    /*if (menu == '0'){
         cargarProductoF();
     }
     if (menu == '1'){
@@ -54,23 +59,54 @@ function mainMenu() {
     if (menu == '2'){
         salirF();
     }
-    
+    */
 }
 
 function cargarProductoF() {
-    return {
+    let producto = {
      tituloProducto : prompt ('Ingrese el nombre del producto'),
      descripcionProducto : prompt ('Ingrese una descripcion para el producto'),
      precioProducto : prompt ('Ingrese el precio del producto'),
-    }
+    };
+    subirProductoF(producto)
+    
+}
+
+
+function subirProductoF(producto, array){
+    productos.push(producto);
+
+    localStorage.setItem('products',productos);
+    
+    let JSONconverter =JSON.stringify(productos);
+    
+    localStorage.setItem('products',JSONconverter);
+
+    console.log(productos.length);
+    
+    mainMenu();
+}
+
+
+
+function borrarProductoF(){
+    console.log (Object.keys(productos));
+    borrar = prompt ( JSON.stringify(productos),`
+    Ingrese cual item desea eliminar`);
+    console.log(borrar);    
+    mainMenu();
+    
+
 }
 
 function mostrarProductoF() {
+    alert(JSON.stringify(productos)); 
+    mainMenu();
 
 }
 
 function salirF() {
-
+    
 }
 
 
@@ -79,19 +115,5 @@ function main() {
        mainMenu();
     }
 }
-
-// let productos = [];
- 
-
-// productos.push(cargarProductoF());
-
-// localStorage.setItem('products',productos);
-
-// const JSONconverter =JSON.stringify(productos);
-
-// localStorage.setItem('products',JSONconverter);
-
 // ME FALTA ARREGLAR EL ORDEN DE LO COMENTADO Y  AGREGAR 
 //CONTENIDO A LA FUNCTION mostrarProductoF y salirF.
-
-
