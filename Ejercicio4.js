@@ -90,17 +90,33 @@ function subirProductoF(producto, array){
 
 
 function borrarProductoF(){
-    console.log (Object.keys(productos));
-    borrar = prompt ( JSON.stringify(productos),`
+   /* console.log (Object.keys(productos));
+    let borrar = prompt ( JSON.stringify(productos),`
     Ingrese cual item desea eliminar`);
     console.log(borrar);    
+    let deleteItem = productos.filter(item => {return item.tituloProducto !== borrar;
+});
+    console.log(deleteItem);
+    subirProductoF();
     mainMenu();
-    
 
-}
-
+    console.log(productos.forEach)*/
+  
+    let borrar = prompt (JSON.stringify(productos),`
+    Ingrese cual item desea eliminar`);
+    productos = productos.splice(borrar,1)
+   // for (let index=0 ; index=borrar ; index++) {
+       
+   
+        
+    console.log(productos);
+    subirProductoF();
+    mainMenu();
+    }
+//}
 function mostrarProductoF() {
     alert(JSON.stringify(productos)); 
+
     mainMenu();
 
 }
@@ -115,5 +131,5 @@ function main() {
        mainMenu();
     }
 }
-// ME FALTA ARREGLAR EL ORDEN DE LO COMENTADO Y  AGREGAR 
-//CONTENIDO A LA FUNCTION mostrarProductoF y salirF.
+
+//Usar filter para eliminar el item de la array
